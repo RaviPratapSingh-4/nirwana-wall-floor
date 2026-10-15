@@ -18,17 +18,21 @@ The notebook is the deliverable. It runs end to end on a fresh Colab runtime, cl
 
 No GPU is needed. Everything runs on the free CPU runtime.
 
+The same notebook is also saved in this repo as `nirwana_wall_floor.ipynb`.
+
 ## What's in this repo
 
 ```
+nirwana_wall_floor.ipynb   # the notebook (same one as the Colab link)
+README.md
 data/
-  labeled/     # the images I evaluate on, with ground truth
+  labeled/                 # the images I evaluate on, with ground truth
 ```
 
 `data/labeled` contains:
 
 - 6 Unsplash interior photos that I labelled by hand with [labelme](https://github.com/wkentaro/labelme) (`.jpg` plus the labelme `.json`)
-- `dev01`, one sample image that came with its own ground-truth masks (`dev01.webp`, `dev01_wall.png`, `dev01_floor.png`)
+- `dev01`, a sample image that was provided with the assignment, together with its ground-truth masks (`dev01.webp`, `dev01_wall.png`, `dev01_floor.png`)
 
 The notebook turns the labelme JSON files into `_wall.png` and `_floor.png` masks when it runs, so those aren't stored here for the six hand-labelled photos.
 
@@ -55,7 +59,7 @@ The idea is to avoid per-pixel work as much as possible. The image is cut into a
 
 ## Results
 
-Evaluated on 7 images (6 hand-labelled plus dev01). Metric is IoU against my labels.
+Evaluated on 7 images (6 hand-labelled plus dev01). Metric is IoU against the ground-truth masks (my labels for the six photos, the provided masks for dev01).
 
 | Version | Wall IoU | Floor IoU |
 |---|---|---|
@@ -94,7 +98,7 @@ I'd rather be upfront about these:
 
 ## Image credits
 
-The photos in `data/labeled` are from [Unsplash](https://unsplash.com) and are used here for evaluation only. All rights remain with the original photographers; filenames keep the photographer and Unsplash ID so each photo can be traced back to its source.
+The photos in `data/labeled` are from [Unsplash](https://unsplash.com) and are used here for evaluation only. All rights remain with the original photographers; filenames keep the photographer and Unsplash ID so each photo can be traced back to its source. `dev01` was provided with the assignment and is not my own image.
 
 ## Author
 
